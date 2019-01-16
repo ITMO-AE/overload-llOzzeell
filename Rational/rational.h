@@ -72,7 +72,6 @@ public:
     {
         assert(rat.numerator != 0);
         return (Rational(numerator, denominator) * Rational(rat.isNegative()?(rat.denominator*-1):rat.denominator, abs(rat.numerator)));
-        //return (Rational(numerator, denominator) * Rational(rat.denominator,rat.numerator));
     }
 
 private:

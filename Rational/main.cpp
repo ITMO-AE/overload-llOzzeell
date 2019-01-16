@@ -4,33 +4,6 @@
 
 using namespace std;
 
-std::ostream& operator << (std::ostream &out, const Rational &rat)
-{
-    out << rat.numerator << "/" << rat.denominator << std::endl;
-    return out;
-}
-
-std::istream& operator >> (std::istream &in, Rational &rat)
-{
-    int a,b;
-    cout << "Input numerator:";
-    cin >> a;
-    cout << "Input denomenator:";
-    cin >> b;
-    rat.MakeRational(a,b);
-    return in;
-}
-
-bool operator == (const Rational &rat1, const Rational &rat2)
-{
-    return (rat1.numerator == rat2.numerator && rat1.denominator == rat2.denominator);
-}
-
-bool operator != (const Rational &rat1, const Rational &rat2)
-{
-    return !(rat1.numerator == rat2.numerator && rat1.denominator == rat2.denominator);
-}
-
 int main()
 {
     // проверка работы интерфейса класса ======================================

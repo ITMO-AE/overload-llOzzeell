@@ -46,3 +46,32 @@ bool Rational::isNegative() const
 {
     return negative;
 }
+
+std::ostream& operator << (std::ostream &out, const Rational &rat)
+{
+    out << rat.numerator << '/' << rat.denominator;
+    return out;
+}
+
+std::istream& operator >> (std::istream &in, Rational &rat)
+{
+    if(in.rdbuf()->in_avail())
+    {
+        int a,b;
+        char k;
+        in >> a>>k>>b;
+        rat.MakeRational(a,b);
+    }
+
+    return in;
+}
+
+bool operator == (const Rational &rat1, const Rational &rat2)
+{
+    return (rat1.numerator == rat2.numerator && rat1.denominator == rat2.denominator);
+}
+
+bool operator != (const Rational &rat1, const Rational &rat2)
+{
+    return !(rat1.numerator == rat2.numerator && rat1.denominator == rat2.denominator);
+}
