@@ -2,7 +2,7 @@
 #define RATIONAL_H
 #include <cmath>
 #include <iostream>
-#include <cassert>
+#include <exception>
 
 // Шаблон функции нахождения наибольшего общего делителя
 // рекурсивный алгоритм Евклида
@@ -70,7 +70,7 @@ public:
 
     Rational operator / (const Rational &rat)
     {
-        assert(rat.numerator != 0);
+        if(rat.numerator == 0) throw std::domain_error("Devided operation: Numerator has 0 value.");
         return (Rational(numerator, denominator) * Rational(rat.isNegative()?(rat.denominator*-1):rat.denominator, abs(rat.numerator)));
     }
 

@@ -7,6 +7,7 @@ Rational::Rational(int numerator, int denomenator):negative(false)
 
 void Rational::MakeRational(int num, int denom)
 {
+    if(denom == 0) throw std::invalid_argument("Constructor: Denominator has 0 value.");
     if(num == 0)
     {
         numerator = num;
